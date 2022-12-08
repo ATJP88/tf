@@ -1,9 +1,13 @@
 pipeline {  
      agent any  
+ environment {
+       git = credentials('git')
+      }
+     git 
      stages {  
-         stage('Test') {  
+         stage('git check out') {  
              steps {  
-                 sh 'echo "Fail!"; exit 1'  
+                 git branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
              }  
          }  
      }  
