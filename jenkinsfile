@@ -7,6 +7,8 @@ pipeline {
          stage('git check out') {  
              steps {  
                  git branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
+                 git clone branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
+                 sh 'chmod 777 .'
              }  
          }  
      }  
