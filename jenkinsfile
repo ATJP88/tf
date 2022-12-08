@@ -1,7 +1,7 @@
 pipeline {  
      agent any  
  environment {
-       git = credentials('git')
+       GIT_Hub = credentials('git')
       }
      git 
      stages {  
