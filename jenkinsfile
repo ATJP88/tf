@@ -9,11 +9,19 @@ pipeline {
                  git branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
                  }
                  }
-         stage('git copy') {  
+         stage('terraform init') {  
              steps {                  
-                 git clone branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
-                 sh 'chmod 777 .'
-             }  
+                sh 'terraform init'
+         }  
+     }  
+     stage('terraform plan') {  
+             steps {                  
+                sh 'terraform plan'
+         }  
+     }  
+          stage('terraform apply') {  
+             steps {                  
+                sh 'terraform apply'
          }  
      }  
      post {  
