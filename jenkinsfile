@@ -3,7 +3,6 @@ pipeline {
  environment {
        GIT_Hub = credentials('git')
       }
-     git 
      stages {  
          stage('git check out') {  
              steps {  
