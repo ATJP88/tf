@@ -16,12 +16,12 @@ pipeline {
      }  
      stage('terraform plan') {  
              steps {                  
-                sh 'terraform plan -var-file="stage.tfvars'
+                sh 'terraform plan -var-file=stage.tfvars'
          }  
      }  
           stage('terraform apply') {  
              steps {                  
-                sh 'terraform apply -var-file="stage.tfvars -auto-approve'
+                sh 'terraform apply -var-file=stage.tfvars -auto-approve'
          }  
      }   
  }
