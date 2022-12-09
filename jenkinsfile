@@ -6,7 +6,7 @@ pipeline {
      stages {  
          stage('git check out') {  
              steps {  
-                 git branch: 'main', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
+                 git branch: 'tf', credentialsId: 'git',  url: 'https://github.com/ATJP88/tf.git'
                  }
                  }
          stage('terraform init') {  
@@ -16,12 +16,12 @@ pipeline {
      }  
      stage('terraform plan') {  
              steps {                  
-                sh 'terraform plan'
+                sh 'terraform plan -var-file="stage.tfvars'
          }  
      }  
           stage('terraform apply') {  
              steps {                  
-                sh 'terraform apply -auto-approve'
+                sh 'terraform apply -var-file="stage.tfvars -auto-approve'
          }  
      }   
  }
